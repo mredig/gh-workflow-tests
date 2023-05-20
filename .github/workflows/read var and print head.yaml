@@ -1,7 +1,9 @@
 name: Read Variable from File
 
 on:
-  push:
+  pull_request:
+    types:
+      - closed
     branches:
       - main
 
@@ -11,11 +13,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Read variable from file
-        run: |
-          echo "Reading variable from file"
-          echo "::set-env name=MY_VARIABLE::$(cat variable.txt)"
-
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+          # path: main
+          # ref: build-${{ env.WORKFLOW_BUILD_NUMBER }}
       - name: Print Head Ref
         run: |
           echo "Head Ref: ${{ github.head_ref }}"
+      - name: Get PWD
+        run: |
+          pwd
+          ls -la
+          ls -la ../ 
+
+      - name: Read variable from file
+        run: |
+          echo "Reading variable from file"
+          TEST=$(cat variable.txt)
+          TEST="TEST=$TEST"
+          echo $TEST >> $GITHUB_ENV
+          echo "ENV - "
+          echo $GITHUB_ENV

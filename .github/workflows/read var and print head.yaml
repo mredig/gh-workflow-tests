@@ -15,7 +15,6 @@ jobs:
   build:
     if: ${{ github.event_name == 'pull_request' }}
     runs-on: ubuntu-latest
-
     steps:
       - name: checkout
         uses: actions/checkout@v2
@@ -26,6 +25,14 @@ jobs:
       - name: Print Head Ref
         run: |
           echo "Head Ref: ${{ github.head_ref }}"
+          echo "Base ref: ${{ github.base_ref }}"
+      - name: Print event
+        run: |
+          echo "Event name: ${{ github.event_name }}"
+          echo "Event: ${{ github.event }}"
+      - name: Print Commit SHA
+        run: |
+          echo "Commit sha that triggered action: ${{ github.sha }}"
       - name: Get PWD
         run: |
           pwd
@@ -53,3 +60,12 @@ jobs:
       - name: Print Head Ref
         run: |
           echo "Head Ref: ${{ github.head_ref }}"
+          echo "Base ref: ${{ github.base_ref }}"
+      - name: Print Commit SHA
+        run: |
+          echo "Commit sha that triggered action: ${{ github.sha }}"
+      - name: Print event
+        run: |
+          echo "Event name: ${{ github.event_name }}"
+          echo "Event: ${{ github.event }}"
+

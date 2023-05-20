@@ -1,0 +1,21 @@
+name: Read Variable from File
+
+on:
+  push:
+    branches:
+      - main
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Read variable from file
+        run: |
+          echo "Reading variable from file"
+          echo "::set-env name=MY_VARIABLE::$(cat variable.txt)"
+
+      - name: Print Head Ref
+        run: |
+          echo "Head Ref: ${{ github.head_ref }}"

@@ -2,13 +2,13 @@ name: Read Variable from File
 
 on:
   pull_request:
-    # types:
-    #   - closed
+    types:
+      - closed
     branches:
       - main
-  push:
-    branches:
-      - mainer
+  # push:
+  #   branches:
+  #     - mainer
 
 
 jobs:

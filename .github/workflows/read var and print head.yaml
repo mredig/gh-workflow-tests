@@ -69,3 +69,25 @@ jobs:
           echo "Event name: ${{ github.event_name }}"
           echo "Event: ${{ github.event }}"
 
+
+
+  merge-only: 
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      - name: Print Head Ref
+        run: |
+          echo "Head Ref: ${{ github.head_ref }}"
+          echo "Base ref: ${{ github.base_ref }}"
+      - name: Print Commit SHA
+        run: |
+          echo "Commit sha that triggered action: ${{ github.sha }}"
+      - name: Print event
+        run: |
+          echo "Event name: ${{ github.event_name }}"
+          echo "Event: ${{ github.event }}"

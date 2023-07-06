@@ -26,7 +26,8 @@ jobs:
       - name: Home config
         run: |
           cat ~/.gitconfig
-
+          brew list
+          
   git-stuff-linux:
     runs-on: ubuntu-latest
     steps:

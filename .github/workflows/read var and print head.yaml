@@ -27,7 +27,7 @@ jobs:
         run: |
           cat ~/.gitconfig
           brew list
-          
+
   git-stuff-linux:
     runs-on: ubuntu-latest
     steps:
@@ -41,7 +41,15 @@ jobs:
           cat .git/config
       - name: Home config
         run: |
+          set -x
           ls -lha ~
+          cat ~/.bash_profile
+          cat ~/.bash_logout
+          cat ~/.bashrc
+          cat ~/.profile
+          ls -lhs ~/.docker
+          ls -lha ~/.config
+
           # cat ~/.gitconfig
 
 

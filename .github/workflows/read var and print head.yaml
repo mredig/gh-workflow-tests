@@ -43,14 +43,7 @@ jobs:
         run: |
           set -x
           ls -lha ~
-          cat ~/.bash_profile
-          cat ~/.bash_logout
-          cat ~/.bashrc
-          cat ~/.profile
-          ls -lhs ~/.docker
-          ls -lha ~/.config
-
-          # cat ~/.gitconfig
+          ls -lha ~/.config/*
 
 
   build:

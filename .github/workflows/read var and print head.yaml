@@ -21,6 +21,7 @@ jobs:
           fetch-depth: 1
       - name: Local config
         run: |
+          git --version
           cat .git/config
       - name: Home config
         run: |
@@ -35,10 +36,12 @@ jobs:
           fetch-depth: 1
       - name: Local config
         run: |
+          git --version
           cat .git/config
       - name: Home config
         run: |
-          cat ~/.gitconfig
+          ls -lha ~
+          # cat ~/.gitconfig
 
 
   build:

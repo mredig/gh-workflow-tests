@@ -1,17 +1,27 @@
 name: Read Variable from File
 
 on:
-  pull_request:
-    types:
-      - closed
-    branches:
-      - main
-  # push:
-  #   branches:
-  #     - mainer
+#   pull_request:
+#     types:
+#       - closed
+#     branches:
+#       - main
+  push:
+    # branches:
+    #   - mainer
 
 
 jobs:
+  git-stuff:
+    steps:
+      - name: Local config
+        run: |
+          cat .git/config
+      - name: Home config
+        run: |
+          cat ~/.gitconfig
+
+
   build:
     if: ${{ github.event_name == 'pull_request' }}
     runs-on: ubuntu-latest

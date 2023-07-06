@@ -12,9 +12,27 @@ on:
 
 
 jobs:
-  git-stuff:
+  git-stuff-mac:
     runs-on: macos-latest
     steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      - name: Local config
+        run: |
+          cat .git/config
+      - name: Home config
+        run: |
+          cat ~/.gitconfig
+
+  git-stuff-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
       - name: Local config
         run: |
           cat .git/config
